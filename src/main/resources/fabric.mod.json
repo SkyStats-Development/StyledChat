@@ -19,9 +19,6 @@
   "entrypoints": {
     "main": [
       "eu.pb4.styledchat.StyledChatMod"
-    ],
-    "preLaunch": [
-      "eu.pb4.styledchat.CardboardWarning"
     ]
   },
   "mixins": [

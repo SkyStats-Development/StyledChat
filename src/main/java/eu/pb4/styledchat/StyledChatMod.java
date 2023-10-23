@@ -32,7 +32,7 @@ public class StyledChatMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		this.crabboardDetection();
+		LOGGER.info("Styled Chat Loaded || Using Cardboard Patch Version Developed by @axle.coffee");
 		GenericModInfo.build(CONTAINER);
 		PlayerDataApi.register(StyledChatUtils.PLAYER_DATA);
 		Placeholders.registerChangeEvent((id, removed) -> ConfigManager.clearCached());
@@ -40,24 +40,12 @@ public class StyledChatMod implements ModInitializer {
 
 
 	public static void serverStarting(MinecraftServer s) {
-		crabboardDetection();
+		LOGGER.info("Styled Chat Loaded || Using Cardboard Patch Version Developed by @axle.coffee");
 		ConfigManager.loadConfig();
 		server = s;
 	}
 
 	public static void serverStopped(MinecraftServer s) {
 		server = null;
-	}
-
-
-	private static void crabboardDetection() {
-		if (FabricLoader.getInstance().isModLoaded("cardboard")) {
-			LOGGER.error("");
-			LOGGER.error("Cardboard detected! This mod doesn't work with it!");
-			LOGGER.error("You won't get any support as long as it's present!");
-			LOGGER.error("");
-			LOGGER.error("Read more: https://gist.github.com/Patbox/e44844294c358b614d347d369b0fc3bf");
-			LOGGER.error("");
-		}
 	}
 }
